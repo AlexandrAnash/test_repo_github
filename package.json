@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"good!\" ",
     "semantic-release": "semantic-release"
   },
   "author": "",
