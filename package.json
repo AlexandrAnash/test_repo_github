@@ -15,9 +15,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AlexandrAnash/test_repo_github.git"
+    "url": "git@github.com:AlexandrAnash/test_repo_github.git"
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/github"
+    ],
+    "prepare": [
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "dist/**/*.{js|css}",
+          "docs"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    "publish": [
+      "@semantic-release/github"
+    ]
   },
   "devDependencies": {
+    "@semantic-release/git": "^4.0.1",
+    "@semantic-release/github": "^4.2.8",
     "semantic-release": "^15.1.4"
   }
 }
